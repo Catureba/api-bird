@@ -9,11 +9,11 @@ import java.util.List;
 
 @RestController
 @CrossOrigin(exposedHeaders = "erros, content-type")
-@RequestMapping(value="/")
+@RequestMapping(value="/api/")
 public class BirdResource {
     @Autowired
     BirdRepository birdRepository;
-    @GetMapping("api/birds")
+    @GetMapping("birds")
     public List<Bird> listaBirds(){
         return birdRepository.findAll();
     }
@@ -24,22 +24,22 @@ public class BirdResource {
         return birdRepository.findById(1);
     }
 
-    @GetMapping("api/birds/{id}")
+    @GetMapping("birds/{id}")
     public Bird listaBirdsUnico(@PathVariable(value = "id")long id){
         return birdRepository.findById(id);
     }
 
-    @PostMapping("api/bird")
+    @PostMapping("bird")
     public Bird salvaBird(@RequestBody Bird bird){
         return  birdRepository.save(bird);
     }
 
-    @DeleteMapping("api/bird/del{id}")
+    @DeleteMapping("bird/del{id}")
     public Bird deleteBird(@PathVariable(value = "id")long id){
         return birdRepository.deleteById(id);
      }
 
-    @PutMapping("api/bird")
+    @PutMapping("bird")
     public Bird atualizeBird(@RequestBody Bird bird){
         return  birdRepository.save(bird);
     }
