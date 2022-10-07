@@ -20,7 +20,7 @@ public class BirdResource {
     @GetMapping("")
     public Bird listaBirdsUnico(){
 
-        return birdRepository.findById(4);
+        return birdRepository.findById(1);
     }
 
     @GetMapping("api/birds/{id}")
